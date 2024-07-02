@@ -1,0 +1,333 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="ソース ファイル">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="ヘッダー ファイル">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="リソース ファイル">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="ソース ファイル\Player">
+      <UniqueIdentifier>{fd470294-707b-48a0-89ef-f5a308918d5d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Block">
+      <UniqueIdentifier>{bb85fa11-26ef-494c-b8ab-5a23a23c87b6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Map">
+      <UniqueIdentifier>{ab875655-0d77-463d-a35c-9dcd0952623a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Camera">
+      <UniqueIdentifier>{4bae4b19-f844-4597-bc26-b8701ca48d17}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Collision">
+      <UniqueIdentifier>{23d1cfa6-b417-4af9-b127-de86326779ff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Fps">
+      <UniqueIdentifier>{dfef7aec-49ac-4292-8356-6939c23c91e3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\EffectManager">
+      <UniqueIdentifier>{1bccf95e-8b02-4f38-b426-931ebdce01b8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Scene">
+      <UniqueIdentifier>{9c06da62-e951-42aa-b229-d6b9f1ff5f0b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\UserInterface">
+      <UniqueIdentifier>{8b6b6ca8-ee84-4d32-b5b9-b9a65248a31d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\EffectManager\Fade">
+      <UniqueIdentifier>{f7c066f4-d01f-4e2c-8768-5f8c50d098d0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\UserInterface\Book">
+      <UniqueIdentifier>{bfb422db-bd29-42b8-8c25-06f9a382f5dc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\UserInterface\ResetGauge">
+      <UniqueIdentifier>{763bca5f-0a24-440a-a38f-19d2d1dfa006}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\UserInterface\StageSelect">
+      <UniqueIdentifier>{2c7278e6-8b0a-4eee-b7ac-b0e5dc0b8a27}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\CountDown">
+      <UniqueIdentifier>{a55998ec-53f7-4803-bf5e-ec66701e288f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\UserInterface\CountDown">
+      <UniqueIdentifier>{38ce2f36-d663-49dd-85ee-c4c1bd10f74d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\UserInterface\PauseSelectUi">
+      <UniqueIdentifier>{fb0708e5-3b5e-41be-b5aa-f1450456dd7e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Sound">
+      <UniqueIdentifier>{b49889b0-9afd-43fe-807f-43a7c3cb1466}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\UserInterface\PressUi">
+      <UniqueIdentifier>{8f10cb0c-c85f-4d83-8489-7b1b10fc215d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\UserInterface\MethodOperation">
+      <UniqueIdentifier>{8e45755d-b4e3-46c2-b579-d82afc60cbcc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\UserInterface\TutorialUi">
+      <UniqueIdentifier>{9d5f103c-a744-434e-a1f9-bdbdf96b9094}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\UserInterface\TutorialUi\TutorialUi1">
+      <UniqueIdentifier>{86c03401-dd62-4b48-bc44-da5ce4846931}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\UserInterface\TutorialUi\BaseTutorialUi">
+      <UniqueIdentifier>{02d8dc0b-61d9-40b9-9117-5e7456f2589d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\UserInterface\TutorialUi\TutorialUi2">
+      <UniqueIdentifier>{3ae0c413-c709-4314-a48e-0e5a5538a1e5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\UserInterface\TutorialUi\TutorialUi3">
+      <UniqueIdentifier>{58795333-9d24-427c-b451-2051abf5275b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\UserInterface\TutorialUi\TutorialUi4">
+      <UniqueIdentifier>{a859f7a8-2fcc-4f16-8053-ebd60261f9fb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\UserInterface\StageClearUi">
+      <UniqueIdentifier>{37655b7a-49b3-405f-b20c-ed401012626c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\EffectManager\Confetti">
+      <UniqueIdentifier>{26533f5e-35da-4bc2-b60f-b6c2925529a3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\EffectManager\Paper">
+      <UniqueIdentifier>{9564ae21-9da9-45ed-b20d-dc6432dbc4cb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Scene\GameScene">
+      <UniqueIdentifier>{4d1445ad-8660-4616-bd36-cc7201df273d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Scene\BaseScene">
+      <UniqueIdentifier>{1b285c55-be9e-41ed-ab18-d418b7d6f7ce}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Scene\ResultScene">
+      <UniqueIdentifier>{710ac6e6-0204-46b3-ba2c-94773cd8e50c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Scene\TitleScene">
+      <UniqueIdentifier>{41eeaa04-3e99-42ce-9c17-3898f2cf52da}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Scene\PauseScene">
+      <UniqueIdentifier>{86719f06-b31b-40b3-8f96-0245b3344adb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\UserInterface\TitleUi">
+      <UniqueIdentifier>{55ce4e0e-6da9-4c1f-8fb4-990fbbcdbaee}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>ソース ファイル\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Block.cpp">
+      <Filter>ソース ファイル\Block</Filter>
+    </ClCompile>
+    <ClCompile Include="Map.cpp">
+      <Filter>ソース ファイル\Map</Filter>
+    </ClCompile>
+    <ClCompile Include="Camera.cpp">
+      <Filter>ソース ファイル\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="Collision.cpp">
+      <Filter>ソース ファイル\Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="Fps.cpp">
+      <Filter>ソース ファイル\Fps</Filter>
+    </ClCompile>
+    <ClCompile Include="Fade.cpp">
+      <Filter>ソース ファイル\EffectManager\Fade</Filter>
+    </ClCompile>
+    <ClCompile Include="EffectManager.cpp">
+      <Filter>ソース ファイル\EffectManager</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneManager.cpp">
+      <Filter>ソース ファイル\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="TitleUi.cpp">
+      <Filter>ソース ファイル\UserInterface\TitleUi</Filter>
+    </ClCompile>
+    <ClCompile Include="UiBook.cpp">
+      <Filter>ソース ファイル\UserInterface\Book</Filter>
+    </ClCompile>
+    <ClCompile Include="ResetGauge.cpp">
+      <Filter>ソース ファイル\UserInterface\ResetGauge</Filter>
+    </ClCompile>
+    <ClCompile Include="UiManager.cpp">
+      <Filter>ソース ファイル\UserInterface</Filter>
+    </ClCompile>
+    <ClCompile Include="StageSelectUi.cpp">
+      <Filter>ソース ファイル\UserInterface\StageSelect</Filter>
+    </ClCompile>
+    <ClCompile Include="CountDown.cpp">
+      <Filter>ソース ファイル\CountDown</Filter>
+    </ClCompile>
+    <ClCompile Include="CountDownUi.cpp">
+      <Filter>ソース ファイル\UserInterface\CountDown</Filter>
+    </ClCompile>
+    <ClCompile Include="PauseSelectUi.cpp">
+      <Filter>ソース ファイル\UserInterface\PauseSelectUi</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundManager.cpp">
+      <Filter>ソース ファイル\Sound</Filter>
+    </ClCompile>
+    <ClCompile Include="PressUi.cpp">
+      <Filter>ソース ファイル\UserInterface\PressUi</Filter>
+    </ClCompile>
+    <ClCompile Include="MethodOperation.cpp">
+      <Filter>ソース ファイル\UserInterface\MethodOperation</Filter>
+    </ClCompile>
+    <ClCompile Include="TutorialManagerUi.cpp">
+      <Filter>ソース ファイル\UserInterface\TutorialUi</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseTutorialUi.cpp">
+      <Filter>ソース ファイル\UserInterface\TutorialUi\BaseTutorialUi</Filter>
+    </ClCompile>
+    <ClCompile Include="TutorialUi1.cpp">
+      <Filter>ソース ファイル\UserInterface\TutorialUi\TutorialUi1</Filter>
+    </ClCompile>
+    <ClCompile Include="TutorialUi2.cpp">
+      <Filter>ソース ファイル\UserInterface\TutorialUi\TutorialUi2</Filter>
+    </ClCompile>
+    <ClCompile Include="TutorialUi3.cpp">
+      <Filter>ソース ファイル\UserInterface\TutorialUi\TutorialUi3</Filter>
+    </ClCompile>
+    <ClCompile Include="TutorialUi4.cpp">
+      <Filter>ソース ファイル\UserInterface\TutorialUi\TutorialUi4</Filter>
+    </ClCompile>
+    <ClCompile Include="StageClearUi.cpp">
+      <Filter>ソース ファイル\UserInterface\StageClearUi</Filter>
+    </ClCompile>
+    <ClCompile Include="Confetti.cpp">
+      <Filter>ソース ファイル\EffectManager\Confetti</Filter>
+    </ClCompile>
+    <ClCompile Include="Paper.cpp">
+      <Filter>ソース ファイル\EffectManager\Paper</Filter>
+    </ClCompile>
+    <ClCompile Include="GameScene.cpp">
+      <Filter>ソース ファイル\Scene\GameScene</Filter>
+    </ClCompile>
+    <ClCompile Include="ResultScene.cpp">
+      <Filter>ソース ファイル\Scene\ResultScene</Filter>
+    </ClCompile>
+    <ClCompile Include="TitleScene.cpp">
+      <Filter>ソース ファイル\Scene\TitleScene</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseScene.cpp">
+      <Filter>ソース ファイル\Scene\BaseScene</Filter>
+    </ClCompile>
+    <ClCompile Include="PauseScene.cpp">
+      <Filter>ソース ファイル\Scene\PauseScene</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Player.h">
+      <Filter>ソース ファイル\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Block.h">
+      <Filter>ソース ファイル\Block</Filter>
+    </ClInclude>
+    <ClInclude Include="Map.h">
+      <Filter>ソース ファイル\Map</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>ソース ファイル\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="Collision.h">
+      <Filter>ソース ファイル\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="Fps.h">
+      <Filter>ソース ファイル\Fps</Filter>
+    </ClInclude>
+    <ClInclude Include="Fade.h">
+      <Filter>ソース ファイル\EffectManager\Fade</Filter>
+    </ClInclude>
+    <ClInclude Include="EffectManager.h">
+      <Filter>ソース ファイル\EffectManager</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneManager.h">
+      <Filter>ソース ファイル\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="TitleUi.h">
+      <Filter>ソース ファイル\UserInterface\TitleUi</Filter>
+    </ClInclude>
+    <ClInclude Include="UiBook.h">
+      <Filter>ソース ファイル\UserInterface\Book</Filter>
+    </ClInclude>
+    <ClInclude Include="ResetGauge.h">
+      <Filter>ソース ファイル\UserInterface\ResetGauge</Filter>
+    </ClInclude>
+    <ClInclude Include="UiManager.h">
+      <Filter>ソース ファイル\UserInterface</Filter>
+    </ClInclude>
+    <ClInclude Include="StageSelectUi.h">
+      <Filter>ソース ファイル\UserInterface\StageSelect</Filter>
+    </ClInclude>
+    <ClInclude Include="CountDown.h">
+      <Filter>ソース ファイル\CountDown</Filter>
+    </ClInclude>
+    <ClInclude Include="CountDownUi.h">
+      <Filter>ソース ファイル\UserInterface\CountDown</Filter>
+    </ClInclude>
+    <ClInclude Include="PauseSelectUi.h">
+      <Filter>ソース ファイル\UserInterface\PauseSelectUi</Filter>
+    </ClInclude>
+    <ClInclude Include="SoundManager.h">
+      <Filter>ソース ファイル\Sound</Filter>
+    </ClInclude>
+    <ClInclude Include="PressUi.h">
+      <Filter>ソース ファイル\UserInterface\PressUi</Filter>
+    </ClInclude>
+    <ClInclude Include="MethodOperation.h">
+      <Filter>ソース ファイル\UserInterface\MethodOperation</Filter>
+    </ClInclude>
+    <ClInclude Include="TutorialManagerUi.h">
+      <Filter>ソース ファイル\UserInterface\TutorialUi</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseTutorialUi.h">
+      <Filter>ソース ファイル\UserInterface\TutorialUi\BaseTutorialUi</Filter>
+    </ClInclude>
+    <ClInclude Include="TutorialUi1.h">
+      <Filter>ソース ファイル\UserInterface\TutorialUi\TutorialUi1</Filter>
+    </ClInclude>
+    <ClInclude Include="TutorialUi2.h">
+      <Filter>ソース ファイル\UserInterface\TutorialUi\TutorialUi2</Filter>
+    </ClInclude>
+    <ClInclude Include="TutorialUi3.h">
+      <Filter>ソース ファイル\UserInterface\TutorialUi\TutorialUi3</Filter>
+    </ClInclude>
+    <ClInclude Include="TutorialUi4.h">
+      <Filter>ソース ファイル\UserInterface\TutorialUi\TutorialUi4</Filter>
+    </ClInclude>
+    <ClInclude Include="StageClearUi.h">
+      <Filter>ソース ファイル\UserInterface\StageClearUi</Filter>
+    </ClInclude>
+    <ClInclude Include="Confetti.h">
+      <Filter>ソース ファイル\EffectManager\Confetti</Filter>
+    </ClInclude>
+    <ClInclude Include="Paper.h">
+      <Filter>ソース ファイル\EffectManager\Paper</Filter>
+    </ClInclude>
+    <ClInclude Include="CommonData.h">
+      <Filter>ソース ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="GameScene.h">
+      <Filter>ソース ファイル\Scene\GameScene</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseScene.h">
+      <Filter>ソース ファイル\Scene\BaseScene</Filter>
+    </ClInclude>
+    <ClInclude Include="ResultScene.h">
+      <Filter>ソース ファイル\Scene\ResultScene</Filter>
+    </ClInclude>
+    <ClInclude Include="TitleScene.h">
+      <Filter>ソース ファイル\Scene\TitleScene</Filter>
+    </ClInclude>
+    <ClInclude Include="PauseScene.h">
+      <Filter>ソース ファイル\Scene\PauseScene</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

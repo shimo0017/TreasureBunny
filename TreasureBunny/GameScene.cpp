@@ -48,7 +48,7 @@ void GameScene::Update(GameStatus& nextStatus)
 				nextStatus = GameStatus::Pause;
 			}
 		}
-		uiManager->Update(*map,isHitGool,false);//アップデート
+		uiManager->Update(*map,isHitGool,false);
 		effectManager->UpDate(isHitGool);
 	}
 

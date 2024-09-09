@@ -15,6 +15,7 @@ Block::Block(int basemodel, VECTOR pos,int kindsNumber,COLOR_F color, int parent
 	MV1SetPosition(model, position);
 	MV1SetupCollInfo(model, -1, 5, 5, 5);
 	MV1SetupReferenceMesh(model, -1, TRUE);
+	int tmp=MV1GetMeshNum(model);
 	polygonList = MV1GetReferenceMesh(model, -1, TRUE);
 	isTransparent = false;
 	step = startstepNumber;
@@ -114,6 +115,25 @@ void Block::SetTransparent(bool Transparent)
 	{
 		MV1SetOpacityRate(model, setOpacity);
 	}
+
+}
+void Block::SetMeshTransparent()
+{
+	
+	for (int i = 1; i < MeshNumber; i++)
+	{
+		float transparent = MV1GetMeshOpacityRate(model, i);
+		if (position.z>=14.9f&& transparent== setOpacity)
+		{
+			MV1SetMeshOpacityRate(model, i, SetCleanness);
+
+		}
+		else if(position.z < 14.9f && transparent == SetCleanness||step>1)
+		{
+			MV1SetMeshOpacityRate(model, i, setOpacity);
+		}
+	}
+
 }
 void Block::ResetBlock()
 {
@@ -127,4 +147,5 @@ void Block::ResetBlock()
 void Block::Draw()
 {
 	MV1DrawModel(model);
+
 }

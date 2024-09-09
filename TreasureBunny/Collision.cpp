@@ -65,31 +65,6 @@ VECTOR Collision::HitBlockPlayer(Map& map, Player& player, VECTOR& moveVector,bo
     }
     endPosition = VAdd(endPosition,moveVector);
     return endPosition;
-    //ここからyuiアレンジ
-    //VECTOR oldPos = player.GetPosition();			// 移動前の座標	
-    //VECTOR nextPos = VAdd(oldPos, moveVector);		// 移動後の座標
-    //// HACK: ステージポリゴンが複数ある場合、ここが繰り返し処理になる
-    //    for (int i = 0; i < sumNumber; i++)
-    //{
-    //    int modelHandle = map.GetBlockModel(i);
-    //    // プレイヤーの周囲にあるステージポリゴンを取得する
-    //    // ( 検出する範囲は移動距離も考慮する )
-    //    auto hitDim = MV1CollCheck_Sphere(modelHandle, -1, oldPos, DefaultSize + VSize(moveVector));
-
-    //    // 検出されたポリゴンが壁ポリゴン( ＸＺ平面に垂直なポリゴン )か床ポリゴン( ＸＺ平面に垂直ではないポリゴン )かを判断し、保存する
-    //    AnalyzeWallAndFloor(hitDim, oldPos);
-
-    //    // 壁ポリゴンとの当たりをチェックし、移動ベクトルを補正する
-    //    nextPos = CheckHitWithWall(player, nextPos);
-
-    //    // 床ポリゴンとの当たりをチェックし、移動ベクトルを補正する
-    //    nextPos = CheckHitWithFloor(player, nextPos);
-
-    //    // 検出したプレイヤーの周囲のポリゴン情報を開放する
-    //    MV1CollResultPolyDimTerminate(hitDim);
-    //}
-
-    //return nextPos;
 
 }
 ///// <summary>
@@ -336,7 +311,7 @@ void Collision::OnCollision(Player& player, int model, VECTOR& moveVector, bool 
                 VECTOR tmp2 = VSub(calcEndPositionTmp,hitPos);
                 float len=VSize(tmp2);
                 if (HitCheck_Sphere_Triangle(calcEndPositionTmp, radius,
-                    hitFlag.Dim[j].Position[0], hitFlag.Dim[j].Position[1], hitFlag.Dim[j].Position[2]) == TRUE)
+                    hitFlag.Dim[j].Position[0], hitFlag.Dim[j].Position[1], hitFlag.Dim[j].Position[2]) == TRUE&&len!=0.0f)
                 {
                     //天井にぶつかったとき
                     if (hitFlag.Dim[j].Normal.y < 0.0f && wall == false)
@@ -355,16 +330,17 @@ void Collision::OnCollision(Player& player, int model, VECTOR& moveVector, bool 
                         }
                     }
                     //行きたいpositionと当たった場所を引きその分戻す
-                    //if (wall == true && hitPos.y < calcEndPositionTmp.y/*|| hitFlag.Dim[j].Normal.z==-1.0f&& wall == false*/)
-                    //{
-                    //    //無効
-                    //    len=0;
-                    //}
-                    //else
                     {
                         len = radius - len;
                         VECTOR correctionValue = VScale(hitFlag.Dim[j].Normal,len);
-                        calcEndPositionTmp =VAdd(calcEndPositionTmp, correctionValue);
+                        if (correctionValue.z > 1.0f || correctionValue.z < -1.0f)
+                        {
+                            //処理なし
+                        }
+                        else
+                        {
+                            calcEndPositionTmp =VAdd(calcEndPositionTmp, correctionValue);
+                        }
                     }
                 }
             }
@@ -405,7 +381,6 @@ int Collision::HitHand(Player& player, Map& map)
             endPosition = VAdd(endPosition, pulsZPos);
         }
     }
-    //DrawLine3D(startPosition, endPosition, GetColor(255, 0, 0));
     for (int i = map.GetSoilNumber(); i < sumNumber; i++)
     {
         int modelHandle = map.GetBlockModel(i);

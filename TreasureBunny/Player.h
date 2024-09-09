@@ -20,7 +20,15 @@ public:
 		WALK,//歩き
 		JAMP,//ジャンプ
 		GRASP,//物をつかむ
-		FALL//落下
+		FALL,//落下
+	};
+	enum class AnimeKinds
+	{
+		STAND=3,//待機
+		WALK=14,//歩き
+		JAMP=7,//ジャンプ
+		GRASP=18,//物をつかむ
+		FALL=8,//落下
 	};
 	//enum class GraspDirection
 	//{
@@ -150,6 +158,10 @@ public:
 	float CalcRotationDirectionYAxis(const VECTOR& nowVector, const VECTOR& dirVector);
 
 	//コリジョン用
+	
+	/// <summary>
+	/// 地面に接地しているとき
+	/// </summary>
 	void OnFall();
 	float GetJumpPower() { return jampPawer; }
 private:
@@ -175,7 +187,7 @@ private:
 	static constexpr float CorrectionRightFrontDegrees = 315.0f;//右手前回転のangle用修正
 	static constexpr int Scale=-1;
 	static constexpr float FallUpPower = 0.05f;
-
+	static constexpr float AnimeAdvanceTime = 0.5f;//時間をどれだけ進めるか
 	
 
 	/// <summary>
@@ -196,6 +208,10 @@ private:
 	/// つかみ状態
 	/// </summary>
 	void ModeGrasp();
+	/// <summary>
+	/// アニメーション変更
+	/// </summary>
+	Status ChangeAnimation();
 
 	VECTOR position;
 	VECTOR direction;
@@ -206,10 +222,15 @@ private:
 	 int modelHandle;
 	static bool isLoadModel;
 	Status status;			//処理用状態
+	Status animeStatus;		//アニメーション用ステータス
+	Status previousAnimeStatus;//前のアニメーション
 	float jampPawer;		//Y軸方向の速度
 	bool isBlockMove;		//ブロックを移動中か
 	int graspMoveDirection;	//ブロックを移動させなくてはいけない方向(0：移動させてない　2：奥　3：手前)
 	bool titleMoveDirection;//タイトルで動く方向
 	bool isMove;
 	bool isRotaNow;//回転中か
+	float animationTime;
+	float animationMaxTime;
+	int animationKinds;
 };

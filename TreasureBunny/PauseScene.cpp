@@ -83,6 +83,7 @@ void PauseScene::Update(GameStatus& nextStatus)
 		isFadeOut = false;
 		nextStatus = GameStatus::Title;//ƒ^ƒCƒgƒ‹‚É
 		soundManager->SoundStop(SoundKinds::Game);
+		delete map;
 	}
 
 }

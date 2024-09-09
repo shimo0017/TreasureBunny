@@ -16,12 +16,15 @@ Player::Player()
 	,angle(0.0f)
 	, targetAngle(0.0f)
 	,status(Status::STAND)
+	,animeStatus(Status::STAND)
+	, previousAnimeStatus(Status::STAND)
 	,jampPawer(0.0f)
 	,isBlockMove(false)
 	, graspMoveDirection(0)
 	, titleMoveDirection(false)
 	, isMove(false)
 	, isRotaNow(false)
+	, animationTime(0.0f)
 {
 	if (isLoadModel == false)
 	{
@@ -31,6 +34,10 @@ Player::Player()
 	modelHandle = MV1DuplicateModel(baseModelHandle);
 	MV1SetScale(modelHandle, VGet(0.01f, 0.01f, 0.01f));
 	Initialize();
+
+	animationKinds =MV1AttachAnim(modelHandle, (int)AnimeKinds::STAND, -1);
+	animationMaxTime = MV1GetAttachAnimTotalTime(modelHandle, animationKinds);
+
 }
 
 Player::~Player()
@@ -40,7 +47,7 @@ Player::~Player()
 
 void Player::LoadModel()
 {
-	baseModelHandle =MV1LoadModel("Model/Character.mv1");
+	baseModelHandle =MV1LoadModel("Model/Bunny.mv1");
 	status = Status::STAND;
 }
 void Player::UnLoadModel()
@@ -52,9 +59,11 @@ void Player::UnLoadModel()
 }
 void Player::Initialize()
 {
+	status = Status::STAND;
+	animeStatus = Status::STAND;
 	position = VGet(StartPosX, StartPosY, StartPosZ);
 	direction = VGet(0, 0, -1.0f);
-	nextDirection = direction;///
+	nextDirection = direction;
 	MV1SetPosition(modelHandle, position);
 	angle = 0.0f;
 	targetAngle = 0.0f;
@@ -62,6 +71,14 @@ void Player::Initialize()
 	isBlockMove = false;
 	graspMoveDirection = 0;
 	isRotaNow = false;
+	for (int i = 0; i < MV1GetAnimNum(modelHandle); i++)
+	{
+		MV1DetachAnim(modelHandle, i);
+	}
+	animationTime = 0.0f;
+	animationKinds = MV1AttachAnim(modelHandle, (int)AnimeKinds::STAND, -1);
+	animationMaxTime = MV1GetAttachAnimTotalTime(modelHandle, animationKinds);
+
 }
 void Player::UpDate(Map &map,Collision &collision, SoundManager& soundManager, bool& isHitGool)
 {
@@ -82,9 +99,45 @@ void Player::UpDate(Map &map,Collision &collision, SoundManager& soundManager, b
 		}
 	}
 	status=SetMoveParameter(moveVector, soundManager);
+
 	ChangeDirection();
 	Move(map,collision,moveVector, isHitGool);
+	if (animationTime > animationMaxTime)
+	{
+		animationTime = 0.0f;
+	}
+	else
+	{
+		animationTime += AnimeAdvanceTime;
+	}
+	MV1SetAttachAnimTime(modelHandle, animationKinds, animationTime);
+	if (animeStatus!=status)
+	{
+		static int fallCount=0;
+		static int standCount = 0;
+		if (status == Status::FALL)
+		{
+			fallCount++;
+		}
+		else
+		{
+			fallCount = 0;
+		}
+		if (status == Status::STAND)
+		{
+			standCount++;
+		}
+		else
+		{
+			standCount = 0;
+		}
 
+		if (status != Status::FALL&&status!=Status::STAND || fallCount >= 2||standCount>=2)
+		{
+			animeStatus=ChangeAnimation();
+		}
+
+	}
 }
 Player::Status Player::SetMoveParameter(VECTOR & moveVector, SoundManager& soundManager )
 {
@@ -208,6 +261,7 @@ Player::Status Player::SetMoveParameter(VECTOR & moveVector, SoundManager& sound
 void Player::TitleMove(Map &map,Collision collision, bool& isHitGool)
 {
 	VECTOR moveVector=VGet(0.0f,0.0f,0.0f);
+
 	if (titleMoveDirection)
 	{
 		moveVector = VGet(MoveSpeed, 0.0f, 0.0f);
@@ -243,9 +297,48 @@ void Player::TitleMove(Map &map,Collision collision, bool& isHitGool)
 		{
 			titleMoveDirection = true;
 		}
+
 	}
 	ChangeDirection();
 	Move(map,collision,moveVector, isHitGool);
+	status = Status::WALK;
+
+	if (animationTime > animationMaxTime)
+	{
+		animationTime = 0.0f;
+	}
+	else
+	{
+		animationTime += AnimeAdvanceTime;
+	}
+	MV1SetAttachAnimTime(modelHandle, animationKinds, animationTime);
+	if (animeStatus != status)
+	{
+		static int fallCount = 0;
+		static int standCount = 0;
+		if (status == Status::FALL)
+		{
+			fallCount++;
+		}
+		else
+		{
+			fallCount = 0;
+		}
+		if (status == Status::STAND)
+		{
+			standCount++;
+		}
+		else
+		{
+			standCount = 0;
+		}
+
+		if (status != Status::FALL && status != Status::STAND || fallCount >= 2 || standCount >= 2)
+		{
+			animeStatus = ChangeAnimation();
+		}
+
+	}
 
 }
 void Player::Move(Map& map,Collision collision,VECTOR moveVector,bool &isHitGool)
@@ -262,12 +355,6 @@ void Player::Move(Map& map,Collision collision,VECTOR moveVector,bool &isHitGool
 			collision.HitDepthBlock(*this, map, moveVector, blockNumber);
 		}
 	}
-	//printfDx("%f\n", position.y);
-	//if (position.y <= 2.0f)
-	//{
-	//	position.y = 2.0f;
-	//	status = Status::STAND;
-	//}
 
 	MV1SetPosition(modelHandle, position);
 }
@@ -309,8 +396,6 @@ void Player::ChangeDirection()
 
 	// モデルに回転をセットする
 	float tan=(float)atan2(negativeVec.x, negativeVec.z);
-	//float tan2=(float)atan(direction.z / direction.x);
-	/*tan = DX_PI * tan / 180.0f;*/
 	MV1SetRotationXYZ(modelHandle, VGet(0.0f,tan,0.0f));//XYZでも行けるようにする
 }
 void Player::ModeGrasp()
@@ -436,4 +521,50 @@ float Player::CalcRotationDirectionYAxis(const VECTOR& nowVector, const VECTOR& 
 		return -1.0f;
 	}
 	return 1.0f;
+}
+Player::Status Player::ChangeAnimation()
+{
+	for (int i = 0; i < MV1GetAnimNum(modelHandle); i++)
+	{
+		MV1DetachAnim(modelHandle, i);
+	}
+	switch (status)
+	{
+	case Status::STAND:
+		animationKinds=MV1AttachAnim(modelHandle, (int)AnimeKinds::STAND, -1,FALSE);
+		animationTime = 0.0f;
+		animationMaxTime= MV1GetAttachAnimTotalTime(modelHandle, animationKinds);
+
+		break;
+	case Status::WALK:
+		animationKinds=MV1AttachAnim(modelHandle, (int)AnimeKinds::WALK, -1,FALSE);
+		animationTime = 0.0f;
+		animationMaxTime = MV1GetAttachAnimTotalTime(modelHandle, animationKinds);
+
+		break;
+	case Status::JAMP:
+		animationKinds = MV1AttachAnim(modelHandle, (int)AnimeKinds::JAMP, -1, FALSE);
+		animationTime = 0.0f;
+		animationMaxTime = MV1GetAttachAnimTotalTime(modelHandle, animationKinds);
+		break;
+	case Status::GRASP:
+		animationKinds = MV1AttachAnim(modelHandle, (int)AnimeKinds::GRASP, -1, FALSE);
+		animationTime = 0.0f;
+		animationMaxTime = MV1GetAttachAnimTotalTime(modelHandle, animationKinds);
+
+		break;
+	case Status::FALL:
+		if (animeStatus == Status::JAMP)
+		{
+			animationKinds = MV1AttachAnim(modelHandle, (int)AnimeKinds::FALL, -1, FALSE);
+			animationTime = 0.0f;
+			animationMaxTime = MV1GetAttachAnimTotalTime(modelHandle, animationKinds);
+		}
+		else
+		{
+			return animeStatus;
+		}
+		break;
+	}
+	return status;
 }

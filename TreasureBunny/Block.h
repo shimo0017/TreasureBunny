@@ -26,6 +26,10 @@ public:
 	/// <param name="Transparent"></param>
 	void SetTransparent(bool Transparent);
 	/// <summary>
+	/// ブロックの色面以外の透明処理
+	/// </summary>
+	void SetMeshTransparent();
+	/// <summary>
 	/// ブロックを最初の状態に戻す
 	/// </summary>
 	void ResetBlock();
@@ -49,7 +53,7 @@ private:
 	static constexpr int	DownStepNoBaseParent = -1;//作成時手前のブロックではないときステップを引く値
 	static constexpr float	setOpacity = 1.0f;//透明度0
 	static constexpr float	SetCleanness = 0.0f;//透明度100
-
+	static constexpr int MeshNumber=4;
 	int model;//ブロックのモデル
 	VECTOR position;//位置
 	VECTOR createPosition;//作った位置

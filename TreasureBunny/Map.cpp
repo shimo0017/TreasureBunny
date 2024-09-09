@@ -51,7 +51,7 @@ Map::Map()
 		baseModel[0] = MV1LoadModel("Model/SecondLevel.mv1");
 		baseModel[1] = MV1LoadModel("Model/ThirdLevel.mv1");
 		baseModel[2] = MV1LoadModel("Model/BlockFirst.mv1");
-		baseModel[3] = MV1LoadModel("Model/BlockRed.mv1");
+		baseModel[3] = MV1LoadModel("Model/Block.mv1");
 		baseModel[4] = MV1LoadModel("Model/coin_stack_large.mv1");
 		coinModel = MV1DuplicateModel(baseModel[4]);
 		coinImg = LoadGraph("Img/coin.png");
@@ -397,6 +397,7 @@ void Map::SetTransparent()
 		{
 			block[i].SetTransparent(transparent);
 		}
+		block[i].SetMeshTransparent();
 	}
 }
 void Map::ResetBlock()

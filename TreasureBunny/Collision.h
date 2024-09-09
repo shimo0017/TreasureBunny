@@ -49,21 +49,5 @@ private:
 	static constexpr float	radius = 1.5f;			//半径
 	static constexpr int	MaxTry = 1;				//最大ずらし回数
 
-	//ここからyuiアレンジ
-	static constexpr int MaxHitColl = 2048;	// 処理するコリジョンポリゴンの最大数
-	static constexpr float	DefaultSize = 10.0f;	// 周囲のポリゴン検出に使用する球の初期サイズ
-	static constexpr float	HitWidth = 3.0f;	// 当たり判定カプセルの半径
-	static constexpr float	HitHeight = 4.0f;	// 当たり判定カプセルの高さ
-	static constexpr int	HitTryNum = 16;		// 壁押し出し処理の最大試行回数
-
-	VECTOR CheckHitWithFloor(Player& player, const VECTOR& checkPosition);
-	VECTOR CheckHitWithWall(Player& player, const VECTOR& checkPosition);
-	void AnalyzeWallAndFloor(MV1_COLL_RESULT_POLY_DIM hitDim, const VECTOR& checkPosition);
-
-	//MV1_COLL_RESULT_POLY* wall[MaxHitColl];	// 壁ポリゴンと判断されたポリゴンの構造体のアドレスを保存しておくためのポインタ配列
-	//MV1_COLL_RESULT_POLY* floor[MaxHitColl];	// 床ポリゴンと判断されたポリゴンの構造体のアドレスを保存しておくためのポインタ配列
-	//int							wallNum;			// 壁ポリゴンと判断されたポリゴンの数
-	//int							floorNum;			// 床ポリゴンと判断されたポリゴンの数
-
 };
 
